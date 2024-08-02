@@ -6,9 +6,6 @@ Created on Fri Nov 24 22:13:52 2023
 @author: mac
 """
 
-# cd /Users/mac/Desktop/files/Data_Science_Python/spotify_nb
-# streamlit run case_study_2.py
-
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -24,7 +21,7 @@ st.set_page_config(layout="wide")
 
 pd.options.plotting.backend = "plotly"
 
-file_path = '/Users/mac/Desktop/files/Data_Science_Python/spotify_nb/'
+file_path = ''
 spotify=pd.read_csv(file_path+'spotify_github.bz2', compression='bz2', low_memory=False)
 
 
