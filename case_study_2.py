@@ -6,6 +6,9 @@ Created on Fri Nov 24 22:13:52 2023
 @author: mac
 """
 
+# cd /Users/mac/Desktop/files/Data_Science_Python/spotify_nb
+# streamlit run case_study_2.py
+
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -21,7 +24,7 @@ st.set_page_config(layout="wide")
 
 pd.options.plotting.backend = "plotly"
 
-file_path = ''
+file_path = '/Users/mac/Desktop/files/Data_Science_Python/spotify_nb/'
 spotify=pd.read_csv(file_path+'spotify_github.bz2', compression='bz2', low_memory=False)
 
 
@@ -35,8 +38,8 @@ order_dict={"release_month":["January","February","March","April","May","June","
             "art_pop_level":["Popular","Unpopular"]}
 order_dict.update(level_order_dict)
 
-num_cols = spotify.select_dtypes(include='number').columns
-cat_cols = spotify.select_dtypes(include=['category','object']).columns
+num_cols = np.setdiff1d(spotify.select_dtypes(include='number').columns, ["artist_popularity","released_day"])
+cat_cols = np.setdiff1d(spotify.select_dtypes(include=['category','object']).columns,["artist_genres","label"])
 
 
 num_dict = {'acousticness':'Acousticness',
